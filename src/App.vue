@@ -2,8 +2,8 @@
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <MyHeader />
-        <MyList />
+        <MyHeader :addTodo="addTodo"/>
+        <MyList :todos="todos" />
         <MyFooter />
       </div>
     </div>
@@ -22,6 +22,21 @@ export default {
     MyHeader,
     MyList,
   },
+  data() {
+    return {
+      todos: [
+        { id: "001", title: "抽烟", done: true },
+        { id: "002", title: "喝酒", done: false },
+        { id: "003", title: "开车", done: true },
+        { id: "004", title: "吃饭", done: true },
+      ],
+    };
+  },
+  methods:{
+    addTodo(obj){
+      this.todos.unshift(obj)
+    }
+  }
 };
 </script>
 

@@ -12,9 +12,6 @@
 export default {
   name: "MyItem",
   props: ["todo"],
-  mounted() {
-    console.log(this.todo);
-  },
 };
 </script>
 
