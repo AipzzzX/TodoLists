@@ -2,7 +2,7 @@
   <li>
     <label>
       <input type="checkbox" />
-      <span>xxx</span>
+      <span>{{ this.todo.title }}</span>
     </label>
     <button class="btn btn-danger" style="display: none">删除</button>
   </li>
@@ -11,6 +11,10 @@
 <script>
 export default {
   name: "MyItem",
+  props: ["todo"],
+  mounted() {
+    console.log(this.todo);
+  },
 };
 </script>
 
