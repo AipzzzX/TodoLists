@@ -2,8 +2,8 @@
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <MyHeader :addTodo="addTodo"/>
-        <MyList :todos="todos" />
+        <MyHeader :addTodo="addTodo" />
+        <MyList :todos="todos" :checkTodo="checkTodo" />
         <MyFooter />
       </div>
     </div>
@@ -32,11 +32,20 @@ export default {
       ],
     };
   },
-  methods:{
-    addTodo(obj){
-      this.todos.unshift(obj)
-    }
-  }
+  methods: {
+    // 添加todo
+    addTodo(obj) {
+      this.todos.unshift(obj);
+    },
+    // todo是否被选中
+    checkTodo(id) {
+      this.todos.forEach((todo) => {
+        if (todo.id === id) {
+          todo.done = !todo.done;
+        }
+      });
+    },
+  },
 };
 </script>
 
